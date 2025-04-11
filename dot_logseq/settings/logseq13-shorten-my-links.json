@@ -1,0 +1,7 @@
+{
+  "disabled": false,
+  "notifications": {
+    "introducedSubPagesCommand": true,
+    "previousPluginVersion": "v1.2.0"
+  }
+}
