@@ -13,4 +13,6 @@
  :logseq-sticky-headers {:version "v1.4.4", :repo "yoyurec/logseq-sticky-headers", :effect true, :theme false}
  :logseq-tabler-picker {:version "v1.4.0", :repo "yoyurec/logseq-tabler-picker", :effect true, :theme false}
  :logseq-link-unlinked {:version "v1.5.1", :repo "usoonees/logseq-plugin-link-unlink", :effect true, :theme false}
- :logseq13-shorten-my-links {:version "v1.2.0", :repo "stdword/logseq13-shorten-my-links", :effect true, :theme false}}
+ :logseq13-shorten-my-links {:version "v1.2.0", :repo "stdword/logseq13-shorten-my-links", :effect true, :theme false}
+ :logseq-tags {:version "v0.1.2", :repo "gidongkwon/logseq-plugin-tags", :effect false, :theme false}
+ :logseq-block-to-page {:version "v1.3.0", :repo "hyrijk/logseq-plugin-block-to-page", :effect false, :theme false}}

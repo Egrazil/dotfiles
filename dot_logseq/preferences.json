@@ -11,13 +11,16 @@
       "selected": true
     },
     "dark": {
-      "name": "Catppuccin Frappé",
-      "url": "assets:///home/egrazil/.logseq/plugins/logseq-catppuccin/ctp-frappe.css",
-      "description": "Catppuccin Frappé",
+      "name": "Catppuccin Macchiato",
+      "url": "file:///home/egrazil/.logseq/plugins/logseq-catppuccin/ctp-macchiato.css",
+      "description": "Catppuccin Macchiato",
       "mode": "dark",
       "pid": "logseq-catppuccin",
       "selected": false
     }
   },
-  "externals": []
+  "externals": [],
+  "pinnedToolbarItems": [
+    "logseq-tags:tags-plugin-open"
+  ]
 }
