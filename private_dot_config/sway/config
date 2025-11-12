@@ -220,9 +220,9 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+Shift+s layout stacking
+    bindsym $mod+Shift+w layout tabbed
+    bindsym $mod+Shift+a layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+Shift+f fullscreen
@@ -311,13 +311,13 @@ bar {
 #    |           Theme configuration         |
 #    #=======================================#
 #
-# target		title	  bg	text	indicator	border
-client.focused		$mauve	  $base	$text	$rosewater	$mauve
+# target		        title	  bg	text	indicator	border
+client.focused		    $mauve	  $base	$text	$rosewater	$mauve
 client.focused_inactive	$overlay0 $base	$text	$rosewater	$overlay0
-client.unfocused	$overlay0 $base	$text	$rosewater	$overlay0
-client.urgent		$peach	  $base	$peach	$overlay0	$peach
-client.placeholder	$overlay0 $base	$text	$overlay0	$overlay0
-client.background	$base
+client.unfocused	    $overlay0 $base	$text	$rosewater	$overlay0
+client.urgent		    $peach	  $base	$peach	$overlay0	$peach
+client.placeholder	    $overlay0 $base	$text	$overlay0	$overlay0
+client.background	    $base
 
 ## remove tilebar
 smart_borders on
