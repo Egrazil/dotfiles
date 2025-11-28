@@ -70,8 +70,12 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
 
 
 
-### =========== Idle configuration ============
-#
+
+#	#=======================================+
+#	|           Idle configuration          |
+#	#=======================================#
+
+
 # Example configuration:
 #
 # exec swayidle -w \
@@ -82,6 +86,10 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+exec swayidle -w \ timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
 
 ### ====== Input configuration =======
 
@@ -116,12 +124,17 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
 		xkb_layout "us,us"
 		xkb_variant "colemak_dh,"
 		xkb_options "grp:shifts_toggle"
-	}
+	 }
 	input "1452:591:Keychron_Keychron_K2" {
 		xkb_model "pc104"
 		xkb_layout "us,us"
 		xkb_variant "colemak_dh"
 		xkb_options "grp:shifts_toggle"
+	}
+	input type:keyboard {
+	    xkb_layout "us,us"
+	    xkb_variant "colemak_dh,"
+	    xkb_options "grp:shifts_toggle"
 	}
 
 
@@ -138,11 +151,26 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
     # Start Firefox
     bindsym $mod+f exec firefox
 
+    # start obsidian
+    bindsym $mod+o exec obsidian
+
+    # start neovim
+    bindsym $mod+n exec nvim
+
     # Kill focused window
     bindsym $mod+Shift+c kill
 
     # Start your launcher
     bindsym $alt+space exec $menu
+
+
+
+
+
+#	#=======================================+
+#	|  Key bindings(Launching applications) |
+#	#=======================================#
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -183,20 +211,39 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    # gestures for moving windows
+    bindgesture pinch:inward+up     move up
+    bindgesture pinch:inward+down   move down
+    bindgesture pinch:inward+left   move left
+    bindgesture pinch:inward+right  move right
+
 #
 # Workspaces:
-#
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+
+    # Switch to workspace, with additional sov commands
+    bindsym --no-repeat $mod+1 workspace number 1; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+2 workspace number 2; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+3 workspace number 3; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+4 workspace number 4; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+5 workspace number 5; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+6 workspace number 6; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+7 workspace number 7; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+8 workspace number 8; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+9 workspace number 9; exec "echo 1 > /tmp/sovpipe"
+    bindsym --no-repeat $mod+0 workspace number 10; exec "echo 1 > /tmp/sovpipe"
+
+    bindsym --release $mod+1 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+2 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+3 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+4 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+5 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+6 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+7 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+8 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+9 exec "echo 0 > /tmp/sovpipe"
+    bindsym --release $mod+0 exec "echo 0 > /tmp/sovpipe"
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -210,6 +257,12 @@ output * bg /home/egrazil/.config/sway/platform.jpg fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # gestures
+    bindgesture swipe:right workspace prev
+    bindgesture swipe:left  workspace next
+
+
 #
 # Layout stuff:
 #
@@ -328,6 +381,18 @@ for_window [class=".*"] border pixel 2
 gaps inner 0
 gaps outer 5
 
+
+#    #=======================================#
+#    |           Plugin Configuration        |
+#    #=======================================#
+
+# Exposway for overview of window layout
+# didn't work, and can't mouse select anyway, so I don't want to use it
+#exec exposwayd -l
+#bindgesture swipe:up exec exposway
+
+# sov for layout view
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
 
 #include configuration snippets from drop in files
 include /etc/sway/config.d/*

@@ -3,6 +3,8 @@
 #--------------------------#
 
 
+# eval fastfetch
+
 if [[ ! -e ~/.zsh-plugins/zsh-syntax-highlighting ]]; then
   git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-plugins/zsh-syntax-highlighting
 fi
@@ -78,6 +80,12 @@ alias sway='sway --unsupported-gpu'
 
 eval $(thefuck --alias)
 
+# Chezmoi aliases
+alias cm='chezmoi'
+alias cma='chezmoi apply -v'
+alias cmra='chezmoi re-add -v'
+alias cme='chezmoi edit'
+
 
 #zprof
 #source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -90,6 +98,14 @@ eval $(thefuck --alias)
 #--------------------------#
 
 export PATH=$PATH:/home/egrazil/bin
+
+#--------------------------#
+#       ENV VARS           #
+#--------------------------#
+
+# for exposway, a sway plugin I decided not to use
+#export EXPOSWAYDIR="$HOME/.local/state/exposway/"
+#export EXPOSWAYMON="$EXPOSWAYDIR/output"
 
 # WINDOW TITLE
 
