@@ -17,6 +17,10 @@ fi
 if [[ ! -e ~/.zsh-plugins/zoxide ]]; then
   git clone --depth=1 https://github.com/ajeetdsouza/zoxide.git ~/.zsh-plugins/zoxide
 fi
+if [[ ! -e ~/.zsh-plugins/fzf ]]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.zsh-plugins/fzf
+  source ~/.zsh-plugins/fzf/install
+fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -43,13 +47,15 @@ bindkey -v
 #--------------------------#
 
 
+# zsh-autocomplete plugin
+
 
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/egrazil/.zshrc'
+# zstyle :compinstall filename '/home/egrazil/.zshrc'
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 # End of lines added by compinstall
 #
 
@@ -103,6 +109,8 @@ export PATH=$PATH:/home/egrazil/bin
 #       ENV VARS           #
 #--------------------------#
 
+export EDITOR=nvim
+
 # for exposway, a sway plugin I decided not to use
 #export EXPOSWAYDIR="$HOME/.local/state/exposway/"
 #export EXPOSWAYMON="$EXPOSWAYDIR/output"
@@ -130,10 +138,11 @@ export PATH=$PATH:/home/egrazil/bin
 #--------------------------#
 
 # set up fzf keybindings and fuzzy completion
-source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh-plugins/zoxide/zoxide.plugin.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
