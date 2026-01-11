@@ -1,3 +1,6 @@
+# vi: ft=zsh
+
+
 #--------------------------#
 #  Update  Plugins         #
 #--------------------------#
@@ -34,7 +37,7 @@ fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=1000 
 SAVEHIST=1000
 setopt autocd extendedglob
 unsetopt beep
@@ -107,11 +110,22 @@ alias cme='chezmoi edit'
 
 export PATH=$PATH:/home/egrazil/bin
 
+# Path for egrazilhomeserver
+# begin template for egrazil_home_server
+{{- if eq .chezmoi.hostname "egrazil_home_server" }}
+
+# setup homebrew on the path
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+{{- end }}
+# end template for egrazil_home_server
+
 #--------------------------#
 #       ENV VARS           #
 #--------------------------#
 
 export EDITOR=nvim
+
 
 # for exposway, a sway plugin I decided not to use
 #export EXPOSWAYDIR="$HOME/.local/state/exposway/"
