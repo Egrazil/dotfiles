@@ -14,4 +14,7 @@ return {
 
 	-- Language support
 	{ import = "astrocommunity.pack.cpp" },
+
+	-- other packs
+	{ import = "astrocommunity.pack.godot" },
 }

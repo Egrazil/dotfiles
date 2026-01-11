@@ -68,6 +68,8 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 #        keybinds          #
 #--------------------------#
 
+# I think this sets up vi keybinds
+bindkey -v
 
 # ctrl right arrow
 bindkey "^[[1;5C" forward-word
