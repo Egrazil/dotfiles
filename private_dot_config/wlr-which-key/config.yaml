@@ -11,7 +11,7 @@ rows_per_column: 5 # No limit by default
 column_padding: 25 # Defaults to padding
 
 # Anchor and margin
-anchor: center # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+anchor: bottom # One of center, left, right, top, bottom, bottom-left, top-left, etc.
 # Only relevant when anchor is not center
 margin_right: 0
 margin_bottom: 0
@@ -19,7 +19,7 @@ margin_left: 0
 margin_top: 0
 
 # namespace to use for the layer shell surface
-namespace: "wlr_which_key"
+# namespace: "wlr_which_key"
 
 # Permits key bindings that conflict with compositor key bindings.
 # Default is `false`.
@@ -41,24 +41,48 @@ menu:
       - key: "o"
         desc: Off
         cmd: poweroff
-  - key: "l"
-    desc: Laptop Screen
+  - key: "o"
+    desc: Open
     submenu:
+      - key: "f"
+        desc: firefox
+        cmd: exec firefox
+      - key: "o"
+        desc: obsidian
+        cmd: exec obsidian
+      - key: "n"
+        desc: neovim
+        cmd: exec nvim
+      - key: "d"
+        desc: dolphin
+        cmd: exec dolphin
       - key: "t"
-        desc: Toggle On/Off
-        cmd: toggle-laptop-display.sh
-      - key: "s"
-        desc: Scale
-        submenu:
-          - key: "1"
-            desc: Set Scale to 1.0
-            cmd: wlr-randr --output eDP-1 --scale 1
-          - key: "2"
-            desc: Set Scale to 1.1
-            cmd: wlr-randr --output eDP-1 --scale 1.1
-          - key: "3"
-            desc: Set Scale to 1.2
-            cmd: wlr-randr --output eDP-1 --scale 1.2
-          - key: "4"
-            desc: Set Scale to 1.3
-            cmd: wlr-randr --output eDP-1 --scale 1.3
+        desc: terminal
+        cmd: exec alacritty
+  - key: "q"
+    desc: quit
+    cmd: kill
+  - key: "h"
+    desc: left
+    cmd: focus left
+  - key: "l"
+    desc: right
+    cmd: focus right
+  - key: "j"
+    desc: down
+    cmd: focus down
+  - key: "k"
+    desc: up
+    cmd: focus up
+  - key: "H"
+    desc: move left
+    cmd: move left
+  - key: "L"
+    desc: move right
+    cmd: move right
+  - key: "J"
+    desc: move down
+    cmd: move down
+  - key: "K"
+    desc: move up
+    cmd: move up

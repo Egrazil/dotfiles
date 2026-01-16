@@ -16,8 +16,6 @@ set $down j
 set $up k
 set $right l
 
-bindsym $mod exec wlr-which-key
-
 
 
 #	#===========================================#
