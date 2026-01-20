@@ -17,4 +17,7 @@ return {
 
 	-- other packs
 	{ import = "astrocommunity.pack.godot" },
+
+	-- motions
+	{ import = "astrocommunity.motion.nvim-surround" },
 }
