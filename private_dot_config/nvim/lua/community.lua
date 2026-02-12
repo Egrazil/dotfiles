@@ -18,8 +18,9 @@ return {
 	-- other packs
 	{ import = "astrocommunity.pack.godot" },
 
-	-- motions
+	-- motions etc.
 	{ import = "astrocommunity.motion.nvim-surround" },
 	{ import = "astrocommunity.motion.tabout-nvim" },
 	{ import = "astrocommunity.motion.nvim-spider" },
+	{ import = "astrocommunity.editing-support.vim-visual-multi" },
 }
