@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# loop over every thing in .local/bin and make it executable
+for file in ~/.local/bin/*
+do
+  chmod +x $file
+done
+
+for file in ~/.local/share/chezmoi/dot_local/bin/*
+do
+  chmod +x $file
+done
+
+

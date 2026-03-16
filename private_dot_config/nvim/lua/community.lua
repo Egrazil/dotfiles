@@ -15,6 +15,10 @@ return {
 	-- Language support
 	{ import = "astrocommunity.pack.cpp" },
 
+	-- make include lsp signature help default to on
+	{ import = "astrocommunity.recipes.astrolsp-auto-signature-help" },
+	{ import = "astrocommunity.lsp.lsp-signature-nvim" },
+
 	-- other packs
 	{ import = "astrocommunity.pack.godot" },
 
