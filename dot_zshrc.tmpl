@@ -145,7 +145,7 @@ alias cme='chezmoi edit'
 
 
 # nnn aliases
-alias nnn='nnn -deA'
+alias nnn='nnn -deA -a'
 
 
 #zprof
@@ -200,8 +200,47 @@ export EDITOR=nvim
 #add-zsh-hook -Uz preexec xterm\_title\_preexec
 # fi
 
-# configuration for nnn
-export NNN_PLUG='z:autojump;d:dragdrop;u:getplugs;o:fzplug'
+#########################
+# configuration for nnn #
+#########################
+
+# set plugin keybinds
+export NNN_PLUG='z:autojump;d:dragdrop;u:getplugs;o:fzplug;p:preview-tui'
+
+# enable file icons in front of directory previews with .iconlookup
+export NNN_ICONLOOKUP=1
+
+# put hidden files on top
+export LC_COLLATE="C"
+
+# set image preview to use ueberzug
+# export NNN_PREVIEWIMGPROG="ueberzug"
+# export UEBERZUGPP_WAYLAND=1
+
+# Set theme
+
+
+# from https://github.com/catppuccin/catppuccin/discussions/1955 
+# I also need to grab something else from there for the .iconlookup
+#
+#
+# # The first option is a translation of the catppuccin colors to their closest match in a 256 color scheme (dependency free)
+# BLK="E5" CHR="E5" DIR="99" EXE="97" REG="07" HARDLINK="E1" SYMLINK="E1" MISSING="08" ORPHAN="D3" FIFO="9F" SOCK="E5" UNKNOWN="D3"
+
+# # Export Context Colors
+# export NNN_COLORS="#9997E5D3;4231"
+
+# This second option relies on you're terminal using the catppuccin theme and well use true catppuccin colors:
+BLK="03" CHR="03" DIR="04" EXE="02" REG="07" HARDLINK="05" SYMLINK="05" MISSING="08" ORPHAN="01" FIFO="06" SOCK="03" UNKNOWN="01"
+
+# Export Context Colors
+export NNN_COLORS="#04020301;4231"
+
+# Finally Export the set file colors ( Both options require this)
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$UNKNOWN"
+
+
+
 
 #--------------------------#
 #      Load Plugins        #
