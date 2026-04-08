@@ -4,27 +4,26 @@
 
 ---@type LazySpec
 return {
-	"AstroNvim/astrocommunity",
-	{ import = "astrocommunity.pack.lua" },
+  "AstroNvim/astrocommunity",
+  { import = "astrocommunity.pack.lua" },
+  -- import/override with your plugins folder
 
-	-- Themes
-	{ import = "astrocommunity.colorscheme.catppuccin" },
+  -- Themes
+  { import = "astrocommunity.colorscheme.catppuccin" },
 
-	-- import/override with your plugins folder
+  -- Language support
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.editing-support.refactoring-nvim" },
 
-	-- Language support
-	{ import = "astrocommunity.pack.cpp" },
-	{ import = "astrocommunity.editing-support.refactoring-nvim" },
+  -- make include lsp signature help default to on
+  { import = "astrocommunity.lsp.lsp-signature-nvim" },
 
-	-- make include lsp signature help default to on
-	{ import = "astrocommunity.lsp.lsp-signature-nvim" },
+  -- other packs
+  { import = "astrocommunity.pack.godot" },
 
-	-- other packs
-	{ import = "astrocommunity.pack.godot" },
-
-	-- motions etc.
-	{ import = "astrocommunity.motion.nvim-surround" },
-	{ import = "astrocommunity.motion.tabout-nvim" },
-	{ import = "astrocommunity.motion.nvim-spider" },
-	{ import = "astrocommunity.editing-support.vim-visual-multi" },
+  -- motions etc.
+  { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.tabout-nvim" },
+  { import = "astrocommunity.motion.nvim-spider" },
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
 }

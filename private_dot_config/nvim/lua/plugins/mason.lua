@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason
 
 ---@type LazySpec
@@ -22,6 +20,23 @@ return {
 
         -- install any other package
         "tree-sitter-cli",
+
+        -- Rust things
+        "bacon",
+        "bacon-ls",
+
+        -- cpp
+        "bash-language-server",
+        "clangd",
+        "cmakelint",
+        "codelldb",
+        "cpptools",
+
+        -- shell
+        "beautysh",
+
+        -- godot
+        "gdtoolkit",
       },
     },
   },
