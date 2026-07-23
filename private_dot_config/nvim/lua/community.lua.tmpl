@@ -26,4 +26,8 @@ return {
   { import = "astrocommunity.motion.tabout-nvim" },
   { import = "astrocommunity.motion.nvim-spider" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
+{{ if eq .chezmoi.os "windows" }}
+  -- only import neeovide on windows
+  { import = "astrocommunity.recipes.neovide" },
+{{ end }}
 }
