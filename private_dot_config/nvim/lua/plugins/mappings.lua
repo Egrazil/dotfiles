@@ -14,6 +14,19 @@ return {
         ["<C-S-Down>"] = { "<Cmd>resize +2<CR>", desc = "Resize split down" },
         ["<C-S-Left>"] = { "<Cmd>vertical resize -2<CR>", desc = "Resize split left" },
         ["<C-S-Right>"] = { "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
+        -- Toggling markdown view of a file
+        ["<Leader>um"] = {
+          function()
+            require("render-markdown").set_buf(nil)
+          end,
+          desc = "Toggle Markdown Rendering (Buffer)",
+        },
+        ["<Leader>uM"] = {
+          function()
+            require("render-markdown").set(nil)
+          end,
+          desc = "Toggle Markdown Rendering (Global)",
+        },
       },
     },
   },

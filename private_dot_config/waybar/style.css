@@ -85,6 +85,7 @@ tooltip {
 #memory,
 #battery,
 #network,
+#backlight,
 #keyboard-state,
 #pulseaudio,
 #custom-power, 
@@ -98,7 +99,7 @@ tooltip {
 #power-profiles-daemon,
 #cpu,
 #idle_inhibitor{
-	padding-right: 10px;
+	padding-right: 8px;
 }
 
 #custom-power{

@@ -35,7 +35,7 @@
         "cpu",
         "memory",
         "temperature",
-        //"backlight",
+        "backlight",
         "keyboard-state",
         "sway/language",
         "battery",
@@ -173,7 +173,7 @@
       "tooltip": true,
       "format-icons": {
         "default": " ",
-        "performance": " ",
+        "performance": "󰓅 ",
         "balanced": " ",
         "power-saver": " "
       }
